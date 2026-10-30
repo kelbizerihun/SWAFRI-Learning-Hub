@@ -1,0 +1,19 @@
+{
+  "name": "learning-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SWAFRI Hackathon 2026: Web3 Learning Hub (Next.js + Express + Solidity)",
+  "scripts": {
+    "setup": "npm install && npm --prefix blockchain install && npm --prefix backend install && npm --prefix frontend install && node scripts/setup-env.js",
+    "dev": "concurrently -k -n chain,api,web -c magenta,blue,green \"npm run chain\" \"npm run api\" \"npm run web\"",
+    "chain": "npm --prefix blockchain run node",
+    "api": "npm --prefix backend run dev",
+    "web": "npm --prefix frontend run dev",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix blockchain test && npm --prefix backend test",
+    "build": "npm --prefix frontend run build"
+  },
+  "devDependencies": {
+    "concurrently": "9.1.0"
+  }
+}
